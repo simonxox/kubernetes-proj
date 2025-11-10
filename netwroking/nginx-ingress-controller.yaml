@@ -345,7 +345,7 @@ metadata:
   annotations:
     service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "60"
     service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-1:095706880412:certificate/2106c6dd-7924-4bd1-a63c-112694ed2cd8
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:ap-south-1:324037320561:certificate/50c2de68-a3df-4e4d-8369-9063adab82f7
     service.beta.kubernetes.io/aws-load-balancer-ssl-ports: https
     service.beta.kubernetes.io/aws-load-balancer-type: alb
   labels:
