@@ -17,4 +17,4 @@ spec:
               service:
                 name: datastore-frontend-svc
                 port:
-                  number: 8081
+                  number: 8080
