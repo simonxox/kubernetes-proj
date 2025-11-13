@@ -16,16 +16,8 @@ Step - 1 : Update the below configuration in prometheus-server configmap.
 Step - 2 : Update the below two configuration blocks in alertmanager configmap.
   First Block:
   This block defines where to send the notifications.
-      receivers:
-      - name: default-receiver
-      - name: slack
-        slack_configs:
-        - channel: "#alerting"
-          text: |
-            {{ .CommonAnnotations.summary }}
-            {{ .CommonAnnotations.description }}
-          send_resolved: true
-          api_url: 'https://hooks.slack.com/services/T07GX6URUQYf/gB098G40NTNW/geQynFNDZW4d573FFxDPyWfrr'
+      
+    
 
   Second Block:
   This block defines in which case where to send notifications. For example for below case if team, severity matches with devops, critical then it will send the notification to slack receiver which we added in above configuration if not to default receiver which is empty.
@@ -42,4 +34,10 @@ Step - 2 : Update the below two configuration blocks in alertmanager configmap.
           continue: true
 
   Reload the alert manager after updating the configmap of alertmanager with below curl. Update the port based on service port mapping port.
-  curl -X POST http://localhost:9094/-/reload
+  curl -X POST http://localhost:9090/-/reload
+
+
+  kubectl delete pod prometheus-server-84fd545df4-6m4mc -n monitoring
+
+  kubectl rollout restart deploy prometheus-server -n monitoring
+

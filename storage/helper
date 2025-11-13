@@ -6,3 +6,5 @@ Installing AWS EBS CSI Driver
 helm install prometheus prometheus-community/prometheus \
 --namespace monitoring \
 --set alertmanager.persistentVolume.storageClass="ebs-persistent-store"
+
+kubectl patch storageclass gp2 -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
